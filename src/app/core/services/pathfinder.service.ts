@@ -1,12 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Configuration } from '../models/configuration';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PathfinderService {
-  private config: Configuration | undefined;
   private headers: HttpHeaders = new HttpHeaders();
 
   constructor(
@@ -16,7 +14,6 @@ export class PathfinderService {
   }
 
   public getAncestries() {
-    console.log(this.config);
 
     this.httpClient
       .get<any>(),

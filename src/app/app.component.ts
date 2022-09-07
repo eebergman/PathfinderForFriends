@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Configuration } from './core/models/configuration';
 import { PathfinderService } from './core/services/pathfinder.service';
 
 @Component({
