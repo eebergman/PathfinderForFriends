@@ -8,18 +8,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 import { PathfinderService } from './core/services/pathfinder.service';
+import { LayoutComponent } from './core/components/layout/layout.component';
+import { MaterialModule } from './material/material.module';
+import { HomeComponent } from './core/components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LayoutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [PathfinderService],
   bootstrap: [AppComponent],
