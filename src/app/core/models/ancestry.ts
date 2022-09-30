@@ -1,100 +1,62 @@
-export interface AdditionalLanguages {
-  count: number;
-  custom: string;
-  value: string[];
+import { AbilityScore } from "../enums/ability-score";
+import { Language } from "../enums/language";
+import { Rarity } from "../enums/rarity";
+import { SourceBook } from "../enums/sourcebook";
+import { Tags } from "../enums/tags";
+
+export class Boosts {
+  FirstBoost: AbilityScore[] = [];
+  SecondBoost: AbilityScore[] = [];
+  ThirdBoost: AbilityScore[] = [];
 }
 
-export interface FirstBoost {
-  value: string[];
+export class Cfaem {
+  id: string = '';
+  img: string = '';
+  level: number = 0;
+  name: string = '';
+  pack: string = '';
 }
 
-export interface SecondBoost {
-  value: string[];
+export class Ctbld {
+  id: string = '';
+  img: string = '';
+  level: number = 0;
+  name: string = '';
+  pack: string = '';
 }
 
-export interface ThirdBoost {
-  value: string[];
+export class Items {
+  cfaem: Cfaem = new Cfaem();
+  ctbld: Ctbld = new Ctbld();
 }
 
-export interface Boosts {
-  0: FirstBoost;
-  1: SecondBoost;
-  2: ThirdBoost;
+export class Traits {
+  rarity: Rarity = Rarity.Common;
+  tags: Tags[] = [];
 }
 
-export interface Description {
-  value: string;
-}
-
-export interface FirstFlaw {
-  value: string[];
-}
-
-export interface Flaws {
-  0: FirstFlaw;
-}
-
-export interface Cfaem {
-  id: string;
-  img: string;
-  level: number;
-  name: string;
-  pack: string;
-}
-
-export interface Ctbld {
-  id: string;
-  img: string;
-  level: number;
-  name: string;
-  pack: string;
-}
-
-export interface Items {
-  cfaem: Cfaem;
-  ctbld: Ctbld;
-}
-
-export interface Languages {
-  custom: string;
-  value: string[];
-}
-
-export interface Source {
-  value: string;
-}
-
-export interface Rarity {
-  value: string;
-}
-
-export interface Traits {
-  custom: string;
-  rarity: Rarity;
-  value: string[];
-}
-
-export interface AncestryData {
-  additionalLanguages: AdditionalLanguages;
-  boosts: Boosts;
-  description: Description;
-  flaws: Flaws;
-  hp: number;
-  items: Items;
-  languages: Languages;
-  reach: number;
-  rules: any[];
-  size: string;
-  source: Source;
-  speed: number;
-  traits: Traits;
-  vision: string;
+export class AncestryData {
+  additionalLanguages: Language[] = [];
+  boosts: Boosts = new Boosts();
+  description: string = '';
+  flaws: AbilityScore[] = [];
+  hp: number = 0;
+  items: Items = new Items();
+  languages: Language[] = [];
+  reach: number = 0;
+  rules: any[] = [];
+  size: string = '';
+  source: SourceBook[] = [];
+  speed: number = 25;
+  traits: Traits = new Traits();
+  vision: string = '';
 }
 
 export class Ancestry {
-  _id!: string;
-  data!: AncestryData;
-  effects!: any[];
-  name!: string;
-  type!: string;
+  id: string = '';
+  data: AncestryData = new AncestryData();
+  effects: string[] = [];
+  name: string = '';
+  type: string = '';
 }

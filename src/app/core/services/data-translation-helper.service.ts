@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Ancestry } from '../models/ancestry';
+import { Ancestry, AncestryData, Boosts, Items, Traits } from '../models/ancestry';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class DataTranslationHelperService {
     response.forEach(element => {
       if (element.name !== '[Empty Ancestry]') {
         const ancestry: Ancestry = {
-          _id: element._id,
-          data: element.data,
+          id: element._id,
+          data: this.adaptAncestryData(element.data),
           effects: element.effects,
           name: element.name,
           type: element.type
@@ -21,5 +21,11 @@ export class DataTranslationHelperService {
       }
     });
     return adaptedAncestries;
+  }
+
+  private static adaptAncestryData(data: any): AncestryData {
+    const ancestryData: AncestryData = {
+    };
+    return ancestryData;
   }
 }
