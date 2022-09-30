@@ -1,9 +1,13 @@
 <mat-toolbar class="toolbar">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['ancestries']">Ancestries</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+
   <button mat-fab color="warn" aria-label="Go Home" [routerLink]="['']">
     <mat-icon>home</mat-icon>
-  </button>
-
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
   </button>
 </mat-toolbar>

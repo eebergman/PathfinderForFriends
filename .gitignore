@@ -44,3 +44,4 @@ Thumbs.db
 src/assets/config.json
 src/environments/environment.prod.ts
 src/environments/environment.ts
+notes.*

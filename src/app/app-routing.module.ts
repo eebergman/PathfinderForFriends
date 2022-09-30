@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/components/home/home.component';
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
+import { AncestryComponent } from './features/ancestry/ancestry.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'ancestries',
+        component: AncestryComponent
       }
     ]
   },

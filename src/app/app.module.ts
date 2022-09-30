@@ -11,6 +11,7 @@ import { PathfinderService } from './core/services/pathfinder.service';
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './core/components/home/home.component';
+import { AncestryComponent } from './features/ancestry/ancestry.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './core/components/home/home.component';
     NavbarComponent,
     PageNotFoundComponent,
     LayoutComponent,
-    HomeComponent
+    HomeComponent,
+    AncestryComponent
   ],
   imports: [
     BrowserModule,
