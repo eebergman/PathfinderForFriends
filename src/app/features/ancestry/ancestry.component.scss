@@ -6,12 +6,12 @@ tr.ancestry-detail-row {
   height: 0;
 }
 
-tr.ancestry-row:not(.example-expanded-row):hover {
+tr.ancestry-row:not(.ancestry-expanded-row):hover {
   background: whitesmoke;
   cursor: pointer;
 }
 
-tr.ancestry-row:not(.example-expanded-row):active {
+tr.ancestry-row:not(.ancestry-expanded-row):active {
   background: #efefef;
 }
 
@@ -29,9 +29,13 @@ tr.ancestry-row:not(.example-expanded-row):active {
 }
 
 .ancestry-description {
-  padding: 16px;
+  padding: 1rem;
 }
 
 .view-more {
   min-width: auto;
+  margin-bottom: 1rem;
+}
+
+.a[mat-raised-button] {
 }

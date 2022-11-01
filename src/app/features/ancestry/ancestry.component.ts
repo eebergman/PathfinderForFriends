@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { Ancestry } from 'src/app/core/models/ancestry';
@@ -25,9 +24,10 @@ export class AncestryComponent implements OnInit {
   protected columnsToDisplay = ['name', 'hp', 'size', 'speed'];
   protected columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   protected expandedElement: Ancestry | null = null;
-  dataSource = new MatTableDataSource(this.ancestries);
+  protected dataSource = new MatTableDataSource(this.ancestries);
+  protected archivesSearchLink = 'https://2e.aonprd.com/Search.aspx?q=';
+  protected linkEnding = '&display=list';
 
-  @ViewChild(MatSort) sort = new MatSort();
 
   constructor(
     private pathfinderService: PathfinderService,
@@ -36,10 +36,6 @@ export class AncestryComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAncestries();
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
   }
 
   private loadAncestries(): void {
@@ -51,7 +47,9 @@ export class AncestryComponent implements OnInit {
 
     this.ancestryStoreService.ancestries.subscribe((x: Ancestry[]) => {
       this.ancestries = x;
-      this.dataSource = new MatTableDataSource(this.ancestries);
+      this.dataSource = new MatTableDataSource(x);
+      console.log(x);
+
     });
   }
 

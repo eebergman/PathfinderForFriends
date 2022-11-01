@@ -42,9 +42,15 @@
         class="ancestry-detail"
         [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
       >
-        <button mat-raised-button color="primary" class="view-more">
+        <a
+          mat-raised-button
+          href="{{ archivesSearchLink }}{{ element.name }}{{ linkEnding }}"
+          target="_blank"
+          color="primary"
+          class="view-more"
+        >
           View More
-        </button>
+        </a>
         <div class="ancestry-description">
           <div [innerHTML]="element.description"></div>
         </div>
