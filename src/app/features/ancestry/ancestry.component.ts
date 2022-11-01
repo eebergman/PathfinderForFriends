@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { Ancestry } from 'src/app/core/models/ancestry';
 import { DataTranslationHelperService } from 'src/app/core/services/data-translation-helper.service';
@@ -20,9 +22,12 @@ import { AncestryStoreService } from 'src/app/core/services/stores/ancestry-stor
 })
 export class AncestryComponent implements OnInit {
   protected ancestries: Ancestry[] = [];
-  protected columnsToDisplay = ['name', 'hp', 'size', 'speed',];
+  protected columnsToDisplay = ['name', 'hp', 'size', 'speed'];
   protected columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   protected expandedElement: Ancestry | null = null;
+  dataSource = new MatTableDataSource(this.ancestries);
+
+  @ViewChild(MatSort) sort = new MatSort();
 
   constructor(
     private pathfinderService: PathfinderService,
@@ -31,10 +36,10 @@ export class AncestryComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAncestries();
-    this.ancestries.forEach(element => {
-      console.log(element
-      );
-    });
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 
   private loadAncestries(): void {
@@ -46,6 +51,11 @@ export class AncestryComponent implements OnInit {
 
     this.ancestryStoreService.ancestries.subscribe((x: Ancestry[]) => {
       this.ancestries = x;
+      this.dataSource = new MatTableDataSource(this.ancestries);
     });
+  }
+
+  protected formatHeaderText(header: string): string {
+    return header.charAt(0).toUpperCase() + header.slice(1).toLowerCase();
   }
 }
