@@ -5,7 +5,7 @@ export enum SourceBook {
   'SourceBookEnumError' = 'SourceBookEnumError'
 }
 
-export function sortRarities(input: string): SourceBook {
+export function sortSourceBooks(input: string): SourceBook {
   let retVal = SourceBook.SourceBookEnumError;
 
   switch (input.toLowerCase()) {

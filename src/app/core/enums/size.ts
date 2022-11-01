@@ -8,7 +8,7 @@ export enum Size {
   'SizeEnumError' = 'SizeEnumError',
 }
 
-export function sortRarities(input: string): Size {
+export function sortSizes(input: string): Size {
   let retVal = Size.SizeEnumError;
 
   switch (input.toLowerCase()) {

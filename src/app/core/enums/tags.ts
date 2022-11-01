@@ -1,14 +1,14 @@
-export enum Tags {
+export enum PfTags {
   // A
   // B
   // C
   // D
-  'Dwarf' = 'dwarf',
+  'Dwarf' = 'Dwarf',
   // E
   // F
   // G
   // H
-  'Humanoid' = 'humanoid',
+  'Humanoid' = 'Humanoid',
   // I
   // J
   // K
@@ -27,4 +27,22 @@ export enum Tags {
   // X
   // Y
   // Z
+  'PfTagsEnumError' = 'PfTagsEnumError'
+}
+
+export function sortPfTags(input: string): PfTags {
+  let retVal = PfTags.PfTagsEnumError;
+
+  switch (input.toLowerCase()) {
+    case 'dwarf':
+      retVal = PfTags.Dwarf;
+      break;
+    case 'humanoid':
+      retVal = PfTags.Humanoid;
+      break;
+    default:
+      break;
+  }
+
+  return retVal;
 }

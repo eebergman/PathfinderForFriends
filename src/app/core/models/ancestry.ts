@@ -1,13 +1,15 @@
 import { AbilityScore } from "../enums/ability-score";
 import { Language } from "../enums/language";
 import { Rarity } from "../enums/rarity";
+import { Size } from "../enums/size";
 import { SourceBook } from "../enums/sourcebook";
-import { Tags } from "../enums/tags";
+import { PfTags } from "../enums/tags";
+import { Vision } from "../enums/vision";
 
 export class Boosts {
-  FirstBoost: AbilityScore[] = [];
-  SecondBoost: AbilityScore[] = [];
-  ThirdBoost: AbilityScore[] = [];
+  firstBoost: AbilityScore[] = [];
+  secondBoost: AbilityScore[] = [];
+  thirdBoost: AbilityScore[] = [];
 }
 
 export class Cfaem {
@@ -33,7 +35,7 @@ export class Items {
 
 export class Traits {
   rarity: Rarity = Rarity.Common;
-  tags: Tags[] = [];
+  tags: PfTags[] = [];
 }
 
 export class AncestryData {
@@ -46,16 +48,29 @@ export class AncestryData {
   languages: Language[] = [];
   reach: number = 0;
   rules: any[] = [];
-  size: string = '';
-  source: SourceBook[] = [];
+  size: Size = Size.Medium;
+  source: SourceBook = SourceBook.PCR;
   speed: number = 25;
   traits: Traits = new Traits();
-  vision: string = '';
+  vision: Vision = Vision.Normal;
 }
 
 export class Ancestry {
   id: string = '';
-  data: AncestryData = new AncestryData();
+  additionalLanguages: Language[] = [];
+  boosts: Boosts = new Boosts();
+  description: string = '';
+  flaws: AbilityScore[] = [];
+  hp: number = 0;
+  items: Items = new Items();
+  languages: Language[] = [];
+  reach: number = 0;
+  rules: any[] = [];
+  size: Size = Size.Medium;
+  source: SourceBook = SourceBook.PCR;
+  speed: number = 25;
+  traits: Traits = new Traits();
+  vision: Vision = Vision.Normal;
   effects: string[] = [];
   name: string = '';
   type: string = '';

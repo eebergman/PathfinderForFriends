@@ -35,39 +35,37 @@ export enum Language {
   'LanguageEnumError' = 'LanguageEnumError'
 }
 
-export function sortLanguages(input: string): Language {
-  let retVal = Language.LanguageEnumError;
+export function sortLanguages(input: string[]): Language[] {
+  const retVal: Language[] = [];
 
-  switch (input.toLowerCase()) {
-    case 'draconic':
-      retVal = Language.Draconic;
-      break;
-    case 'elven':
-      retVal = Language.Elven;
-      break;
-    case 'gnoll':
-      retVal = Language.Gnoll;
-      break;
-    case 'iruxi':
-      retVal = Language.Iruxi;
-      break;
-    case 'orcish':
-      retVal = Language.Orcish;
-      break;
-    case 'sylvan':
-      retVal = Language.Sylvan;
-      break;
-    case 'common':
-      retVal = Language.Common;
-      break;
-      // case 'draconic':
-      //   retVal = Language.Draconic;
-      //   break;
-      // case 'draconic':
-      //   retVal = Language.Draconic;
-      break;
-    default:
-      break;
-  }
+  input.forEach(lang => {
+    let value = Language.LanguageEnumError;
+    switch (lang.toLowerCase()) {
+      case 'draconic':
+        value = Language.Draconic;
+        break;
+      case 'elven':
+        value = Language.Elven;
+        break;
+      case 'gnoll':
+        value = Language.Gnoll;
+        break;
+      case 'iruxi':
+        value = Language.Iruxi;
+        break;
+      case 'orcish':
+        value = Language.Orcish;
+        break;
+      case 'sylvan':
+        value = Language.Sylvan;
+        break;
+      case 'common':
+        value = Language.Common;
+        break;
+      default:
+        break;
+    }
+  });
+
   return retVal;
 }

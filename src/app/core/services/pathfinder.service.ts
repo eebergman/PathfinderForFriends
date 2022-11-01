@@ -4,7 +4,6 @@ import { catchError, Observable, of, retry } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { Ancestry } from '../models/ancestry';
-import { DataTranslationHelperService } from './data-translation-helper.service';
 
 @Injectable({
   providedIn: 'root'
